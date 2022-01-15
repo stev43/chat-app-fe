@@ -1,2 +1,2 @@
-const WS = new WebSocket('ws://localhost:3000');
+const WS = new WebSocket('ws://chat-server:8000');
 export default WS;
