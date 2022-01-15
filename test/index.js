@@ -16,7 +16,7 @@ var rooms = [
         { name: "room1", id: "1", messages: [{name:'Steven', message: 'Hello'}]},
         { name: "room2", id: "3", messages: [{name:'Steven', message: 'Hello'}, {name: 'Hasan', message: 'World'}]},
         { name: "room3", id: "7", messages: [{name:'Steven', message: 'Hello'}, {name: 'Hasan', message: 'World'}]},
-        { name: "longlongname", id: "5", messages: [{name: 'longlongname', message: 'Extremely long message that necessitates a word wrap should go here. As I have some time I will write it myself.'}, {userName: 'Hasan', message: 'World'}]},
+        { name: "longlongname", id: "5", messages: [{name: 'longlongname', message: 'Extremely long message that necessitates a word wrap should go here. As I have some time I will write it myself.'}, {name: 'Hasan', message: 'World'}]},
       ];
 
 wss.on('connection', function (ws) {
@@ -45,6 +45,13 @@ wss.on('connection', function (ws) {
     } else if(request.type == "joinRoom"){
     	ws.send(JSON.stringify({
     		type: "joinedRoom",
+    		content: {
+    			room: request.content.room
+    		}
+    	}));
+    } else if(request.type == "deleteRoom"){
+    	ws.send(JSON.stringify({
+    		type: "deletedRoom",
     		content: {
     			room: request.content.room
     		}
