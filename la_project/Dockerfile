@@ -17,6 +17,6 @@ COPY . .
 
 # build app for production with minification
 #RUN npm run build
-
+ENV VUE_APP_SOCKET_IP=192.168.0.100
 EXPOSE 8080
 CMD [ "npm", "run", "serve" ]

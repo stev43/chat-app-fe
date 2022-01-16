@@ -1,2 +1,2 @@
-const WS = new WebSocket('ws://chat-server:8000');
+const WS = new WebSocket('ws://' + process.env.VUE_APP_SOCKET_IP + ':8000/');
 export default WS;

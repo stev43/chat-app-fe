@@ -50,6 +50,8 @@ export default {
   },
   methods: {
     onMessage(roomData, messageData){
+      console.log(roomData);
+      console.log(messageData);
       var room = this.rooms.find(e => e.id == roomData.id)
       if(room == null) return;
       if(room.messages == null) {

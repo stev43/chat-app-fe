@@ -51,7 +51,7 @@ export default {
   methods: {
     sendChat(){
       if(this.connection != null){
-        console.log(JSON.stringify(this.user));
+        console.log(JSON.stringify({type: "chat", content: {room: {id: this.roomData.id, name: this.roomData.name}, user: this.user, message: this.chatMessage}}));
         this.connection.send(JSON.stringify({type: "chat", content: {room: {id: this.roomData.id, name: this.roomData.name}, user: this.user, message: this.chatMessage}}));
         this.chatMessage = "";
       }
